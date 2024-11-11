@@ -1,5 +1,7 @@
 package main.coursesmanagement;
 
+import java.util.ArrayList;
+
 public class Curso {
     private int id;
     private String nome;
@@ -46,5 +48,23 @@ public class Curso {
     @Override
     public int hashCode() {
         return id;
+    }
+
+    public static void exibirAlunosMatriculados(Curso curso, ArrayList<Aluno> alunos) {
+        System.out.println(String.format("======= Matriculados em %s ======", curso.getNome()));
+
+        for(Aluno aluno: alunos) {
+            if (aluno.getCursosMatriculados().contains(curso)) {
+                System.out.println("Aluno matriculado: " + aluno.getNome());
+            }
+        }
+    }
+
+    public static void exibirCursosProfessor(Professor professor) {
+        System.out.println(String.format("======= %s leciona os cursos ======", professor.getNome()));
+
+        for(Curso curso: professor.getCursosMinistrados()) {
+            System.out.println("Curso ministrado: " + curso.getNome());
+        }
     }
 }
