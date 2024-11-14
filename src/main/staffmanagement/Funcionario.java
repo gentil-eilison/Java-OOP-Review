@@ -27,5 +27,11 @@ public abstract class Funcionario {
         return salario;
     }
 
-    
+    @Override
+    public boolean equals(Object funcionario) {
+        if (this == funcionario) return true;
+        if (!(this instanceof Funcionario)) return false;
+        var outroFuncionario = (Funcionario) funcionario;
+        return this.getId() == outroFuncionario.getId();
+    }
 }

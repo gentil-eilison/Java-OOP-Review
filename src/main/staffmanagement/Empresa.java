@@ -18,15 +18,15 @@ public class Empresa<T extends Funcionario> {
     }
 
     public void adicionarFuncionario(T funcionario) throws FuncionarioExisteException {
-        if (!this.funcionarios.contains(funcionario)) {
-            this.funcionarios.add(funcionario);
+        if (this.funcionarios.contains(funcionario)) {
+            throw new FuncionarioExisteException("O funcionário " + funcionario.getNome() + " já está na empresa");
         }
-        throw new FuncionarioExisteException("O funcionário já está na empresa");
+        this.funcionarios.add(funcionario);
     }
 
     public void listarFuncionarios() {
         for(T funcionario: this.funcionarios) {
-            var dadosFuncionario = String.format("Funcionário: %s\n Salário: %d\n", funcionario.getNome(), funcionario.calcularSalario());
+            var dadosFuncionario = String.format("Funcionário: %s\n Salário: %g\n", funcionario.getNome(), funcionario.calcularSalario().doubleValue());
             System.out.println(dadosFuncionario);
         }
     }

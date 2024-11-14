@@ -10,7 +10,7 @@ public class Gerente extends Funcionario implements Bonus {
 
     @Override
     public BigDecimal calcularBonus(double percentual) {
-        var percentualBigDecimal = new BigDecimal(percentual);
+        var percentualBigDecimal = new BigDecimal(String.valueOf(percentual));
         return this.getSalario().multiply(percentualBigDecimal).setScale(2, RoundingMode.HALF_UP);
     }
 
