@@ -24,6 +24,13 @@ public class Empresa<T extends Funcionario> {
         this.funcionarios.add(funcionario);
     }
 
+    public void removerFuncionario(T funcionario) throws FuncionarioNaoExisteException {
+        if (!this.funcionarios.contains(funcionario)) {
+            throw new FuncionarioNaoExisteException("O funcionário " + funcionario.getNome() + " não está na empresa");
+        }
+        this.funcionarios.remove(funcionario);
+    }
+
     public void listarFuncionarios() {
         for(T funcionario: this.funcionarios) {
             var dadosFuncionario = String.format("Funcionário: %s\n Salário: %g\n", funcionario.getNome(), funcionario.calcularSalario().doubleValue());

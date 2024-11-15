@@ -5,12 +5,12 @@ import java.math.BigDecimal;
 public abstract class Funcionario {
     private int id;
     private String nome;
-    private BigDecimal salario;
+    private BigDecimal salarioBase;
 
-    public Funcionario(int id, String nome, BigDecimal salario) {
+    public Funcionario(int id, String nome, BigDecimal salarioBase) {
         this.id = id;
         this.nome = nome;
-        this.salario = salario;
+        this.salarioBase = salarioBase;
     }
 
     public abstract BigDecimal calcularSalario();
@@ -23,8 +23,8 @@ public abstract class Funcionario {
         return nome;
     }
 
-    public BigDecimal getSalario() {
-        return salario;
+    public BigDecimal getSalarioBase() {
+        return salarioBase;
     }
 
     @Override
