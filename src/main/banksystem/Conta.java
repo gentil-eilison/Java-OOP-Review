@@ -34,4 +34,16 @@ public class Conta {
     public void setSaldo(double saldo) {
         this.saldo = saldo;
     }
+
+    public boolean podeSacar(double valor) {
+        return valor < this.getSaldo();
+    };
+    
+    public void sacar(double valor) {
+        this.setSaldo(this.getSaldo() - valor);
+    };
+
+    public void depositar(double valor) {
+        this.setSaldo(this.getSaldo() + valor);
+    }
 }
